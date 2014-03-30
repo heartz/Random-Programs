@@ -21,8 +21,4 @@ for i in range(1,noOfTestCases+1):
         elif((absDiff==3 or absDiff==2) and countSurprise>0 and scoresCheck1>=0):
             countSurprise=countSurprise-1
             passers=passers+1
-    fileOpen2.write("Case #")
-    fileOpen2.write(str(i))
-    fileOpen2.write(": ")
-    fileOpen2.write(str(passers))
-    fileOpen2.write('\n')
+    fileOpen2.write("Case #%d: %d\n"%(i,passers))

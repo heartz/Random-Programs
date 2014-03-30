@@ -24,8 +24,4 @@ for i in range(1,noOfTestCases+1):
         finalOut=finalOut+" "+(table[asciiValue2-97])
     else:
         finalOut=finalOut+(table[asciiValue2-97])
-    fileOpen2.write("Case #")
-    fileOpen2.write(str(i))
-    fileOpen2.write(": ")
-    fileOpen2.write(finalOut)
-    fileOpen2.write('\n')   
+    fileOpen2.write("Case #%d: %s\n"%(i,finalOut))

@@ -22,11 +22,6 @@ for i in range(1,noOfTestCases+1):
             sq=int(math.sqrt(j))                        
             if((palindrome(str(j))==1)&(palindrome(str(sq))==1)):
                 count=count+1
-    fileOpen2.write("Case #")
-    fileOpen2.write(str(i))
-    fileOpen2.write(": ")
-    fileOpen2.write(str(count))
-    fileOpen2.write('\n')
-            
+    fileOpen2.write("Case #%d: %d\n"%(i,count))
            
             

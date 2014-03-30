@@ -13,9 +13,5 @@ for i in range(1,noOfTestCases+1):
                 sentence[j]=b[k]
                 break
     decode=''.join(sentence)
-    fileOpen2.write("Case #")
-    fileOpen2.write(str(i))
-    fileOpen2.write(": ")
-    fileOpen2.write(decode)
-    fileOpen2.write('\n')   
+    fileOpen2.write("Case #%d: %s\n"%(i,decode))
     

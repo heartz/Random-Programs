@@ -16,9 +16,4 @@ for i in range(1,noOfTestCases+1):
     index2=int(positions.pop())
     index1=int(positions.pop())
     indexes=str(index1)+" "+str(index2)
-    fileOpen2.write("Case #")
-    fileOpen2.write(str(i))
-    fileOpen2.write(": ")
-    fileOpen2.write(indexes)
-    fileOpen2.write('\n')   
-    
+    fileOpen2.write('Case #%d: %s\n' %(i,indexes))

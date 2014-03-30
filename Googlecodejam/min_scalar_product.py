@@ -15,8 +15,4 @@ for i in range(1,noOfTestCases+1):
     yReversed=ySorted[::-1] #'Least value is after x is sort and y is reverse sorted.
     for j in range(vectorDegree):
         totalSum+=(int(xSorted[j])*(int(yReversed[j])))
-    fileOpen2.write("Case #")
-    fileOpen2.write(str(i))
-    fileOpen2.write(": ")
-    fileOpen2.write(str(totalSum))
-    fileOpen2.write('\n')
+    fileOpen2.write("Case #%d: %d\n"%(i,totalSum))
