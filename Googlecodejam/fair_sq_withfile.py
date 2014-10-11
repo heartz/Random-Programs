@@ -1,26 +1,25 @@
 import math
-Dictionary.new(0)
-
 fileOpen=open("fair-sq-large1.in","r+")
 #fileOpen=open("fair-sq-small.in","r+")
 #fileOpen=open("testing.txt","r+")
 fileOpen2=open("output6.txt","w+")
 noOfTestCases=int(fileOpen.readline())
 arr=[0,1,2,3,11,22,101,111,121,202,212,1001,1111,2002,10001,10101,10201,11011,11111,11211,20002,20102,100001,101101,110011,111111,200002,1000001,1001001,1002001,1010101,1011101,1012101,1100011,1101011,1102011,1110111,1111111,2000002,2001002]
-def ispalindrome(num):  
+#array of all fair and sq between 0 to 10^14
+def ispalindrome(num):  #checks palindrome
     n=str(num)  
     while len(n)>1:  
         if n[0]!=n[-1]:  
             return False  
         n=n[1:-1]  
     return True 
-def isSquare(integer):
+def isSquare(integer): #checks if perfect square
     root = math.sqrt(integer)
     if int(root + 0.5) ** 2 == integer: 
         return True
     else:
-        return False
-def checker(num):
+        return False 
+def checker(num): #checks if number consists of only 0,1,2
     n=num
     num=str(num)
     num=num+"012"
@@ -32,6 +31,7 @@ def checker(num):
         print(set1,set2)
     else:
         return False
+    #all the numbers, except 3, all of them have only 0,1,2 as digits
 for i in range(1,noOfTestCases+1):
     count=0
     j=0
@@ -46,12 +46,12 @@ for i in range(1,noOfTestCases+1):
     else:
         sqLowerLimit =int(math.sqrt(lowerLimit))+1
     sqUpperLimit =int(math.sqrt(upperLimit))
-    for j in range(sqLowerLimit,sqUpperLimit+1):
+    for j in range(sqLowerLimit,sqUpperLimit+1): 
         if(ispalindrome(j)):
             if(checker(j)):
                 k=j**2
                 if(ispalindrome(k)):
-                    first=j
+                    first=j #finding the smallest fair sq
                     #print(i,first)
                     break
     for j in range(sqUpperLimit,sqLowerLimit-1,-1):
@@ -59,10 +59,10 @@ for i in range(1,noOfTestCases+1):
             if(checker(j)):
                 k=j**2
                 if(ispalindrome(k)):
-                    second=j
+                    second=j #finding the largest fair sq
                     #print(i,second)
                     break
-    count = arr.index(second) - arr.index(first)     
+    count = arr.index(second) - arr.index(first)    # finding index difference [ also total number of fair sq inbetween] 
     if(first!=0):
         count=count+1
     print(i)
