@@ -1,37 +1,11 @@
 import math
-fileOpen=open("fair-sq-large1.in","r+")
+fileOpen=open("C-large-practice-1.in","r+")
 #fileOpen=open("fair-sq-small.in","r+")
 #fileOpen=open("testing.txt","r+")
 fileOpen2=open("output6.txt","w+")
 noOfTestCases=int(fileOpen.readline())
 arr=[0,1,2,3,11,22,101,111,121,202,212,1001,1111,2002,10001,10101,10201,11011,11111,11211,20002,20102,100001,101101,110011,111111,200002,1000001,1001001,1002001,1010101,1011101,1012101,1100011,1101011,1102011,1110111,1111111,2000002,2001002]
 #array of all fair and sq between 0 to 10^14
-def ispalindrome(num):  #checks palindrome
-    n=str(num)  
-    while len(n)>1:  
-        if n[0]!=n[-1]:  
-            return False  
-        n=n[1:-1]  
-    return True 
-def isSquare(integer): #checks if perfect square
-    root = math.sqrt(integer)
-    if int(root + 0.5) ** 2 == integer: 
-        return True
-    else:
-        return False 
-def checker(num): #checks if number consists of only 0,1,2
-    n=num
-    num=str(num)
-    num=num+"012"
-    set1=set(num)
-    set2=set("012")
-
-    if((set1==set2)|(n==3)):
-        return True
-        print(set1,set2)
-    else:
-        return False
-    #all the numbers, except 3, all of them have only 0,1,2 as digits
 for i in range(1,noOfTestCases+1):
     count=0
     j=0
@@ -39,31 +13,17 @@ for i in range(1,noOfTestCases+1):
     second=0
     limits=fileOpen.readline()
     limits1=limits.split()
-    lowerLimit=int(limits1[0])
-    upperLimit=int(limits1[1])
-    if(isSquare(lowerLimit)==True):
-        sqLowerLimit =int(math.sqrt(lowerLimit))
-    else:
-        sqLowerLimit =int(math.sqrt(lowerLimit))+1
-    sqUpperLimit =int(math.sqrt(upperLimit))
-    for j in range(sqLowerLimit,sqUpperLimit+1): 
-        if(ispalindrome(j)):
-            if(checker(j)):
-                k=j**2
-                if(ispalindrome(k)):
-                    first=j #finding the smallest fair sq
-                    #print(i,first)
-                    break
-    for j in range(sqUpperLimit,sqLowerLimit-1,-1):
-        if(ispalindrome(j)):
-            if(checker(j)):
-                k=j**2
-                if(ispalindrome(k)):
-                    second=j #finding the largest fair sq
-                    #print(i,second)
-                    break
-    count = arr.index(second) - arr.index(first)    # finding index difference [ also total number of fair sq inbetween] 
-    if(first!=0):
-        count=count+1
-    print(i)
+    num1=int(limits1[0])
+    num2=int(limits1[1])
+    j=0
+    for j in range(39,-1,-1):
+        if(num2 >= (arr[j]**2)):
+            break;
+    count=0
+    n=0
+    for n in range(j,-1,-1):
+        if((arr[n]**2) >= num1):
+           count=count+1
+        else:
+           break;
     fileOpen2.write("Case #%d: %d\n"%(i,count))
